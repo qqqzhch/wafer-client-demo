@@ -6,7 +6,33 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#333",
-        "navigationBarTitleText": "腾讯云小程序解决方案",
+        "navigationBarTitleText": "吐槽你的前任",
         "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+      "color": "#a9b7b7",
+      "selectedColor": "#11cd6e",
+      "borderStyle": "black",
+      "list": [
+        {
+          "selectedIconPath": "images/homec.png",
+          "iconPath": "images/home.png",
+          "pagePath": "pages/index/index",
+          "text": "吐槽"
+        },
+        {
+          
+          "pagePath": "pages/chat/chat",
+          "iconPath": "images/question.png",
+          "selectedIconPath": "images/questionc.png",
+          "text": "答卷"
+        },
+        {
+          "pagePath": "pages/chat/chat",
+          "selectedIconPath": "images/userc.png",
+          "iconPath": "images/user.png",
+          "text": "我"
+        }
+      ]
     }
 }
