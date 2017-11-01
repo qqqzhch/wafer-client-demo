@@ -1,0 +1,28 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">普鲁斯特问卷</view>
+        <view class="page__desc">这份问卷因为普鲁斯特特别的答案而出名，并在当年时髦的巴黎人沙龙中颇为流行。因此后人将这份问卷命名为“Proust Questionnaire”</view>
+    </view>
+
+    <view class="page__bd">
+        <view class="weui-cells__title">第一题</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">你认为最完美的快乐是怎样的？</view>
+              
+            </view>
+        </view>
+
+        <view class="weui-cells__title">语音答案</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+             
+             <button class="weui-btn" type="default" plain="true">开始录音</button>
+            </view>
+            <view class="weui-cell">
+             <button class="weui-btn" type="default" plain="true">结束录音</button>
+            </view>
+            
+        </view>
+    </view>
+</view>

@@ -21,11 +21,17 @@
           "text": "吐槽"
         },
         {
-          
-          "pagePath": "pages/chat/chat",
+          "pagePath": "pages/question/index",
           "iconPath": "images/question.png",
           "selectedIconPath": "images/questionc.png",
           "text": "答卷"
+        },
+        {
+          
+          "pagePath": "pages/chat/chat",
+          "iconPath": "images/talk.png",
+          "selectedIconPath": "images/talkc.png",
+          "text": "聊天"
         },
         {
           "pagePath": "pages/chat/chat",
