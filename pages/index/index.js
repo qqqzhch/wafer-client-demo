@@ -1,20 +1,27 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 
 Page({
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '吐槽你的前任原型',
-      path: 'pages/index/index',
+  data: {
+    tabs: ["100条吐槽", "我要吐槽"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
+  },
+  onLoad: function () {
+    var that = this;
+    wx.getSystemInfo({
       success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
       }
-    }
+    });
+  },
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
   }
 });
