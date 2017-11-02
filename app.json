@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/chat/chat"
+        "pages/chat/chat",
+        "pages/question/question"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -21,7 +22,7 @@
           "text": "吐槽"
         },
         {
-          "pagePath": "pages/question/index",
+          "pagePath": "pages/question/question",
           "iconPath": "images/question.png",
           "selectedIconPath": "images/questionc.png",
           "text": "答卷"
