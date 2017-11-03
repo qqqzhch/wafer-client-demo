@@ -17,10 +17,13 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
              
-             <button class="weui-btn" type="default" plain="true"  bindtap='changeName' >开始录音</button>
+             <button class="weui-btn" type="default" plain="true"  bindtap='startv' >开始录音</button>
             </view>
             <view class="weui-cell">
-             <button class="weui-btn" type="default" plain="true"bindtap='changeName2' >结束录音</button>
+             <button class="weui-btn" type="default" plain="true"bindtap='endv' >结束录音</button>
+            </view>
+            <view class="weui-cell">
+             <button class="weui-btn" type="default" plain="true"bindtap='uploadfile' >上传</button>
             </view>
             
         </view>
