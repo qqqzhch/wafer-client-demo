@@ -1,4 +1,8 @@
 @import 'vendor/style/weui.wxss';
+.kind-list__img {
+width:30px;
+height:30px;
+}
 
 page{
     background-color: #F8F8F8;
