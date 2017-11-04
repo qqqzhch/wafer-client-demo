@@ -77,6 +77,20 @@ Page({
   },
   onLoad: function () {
     var that = this;
+    showBusy('正在登录');
+
+    // 登录之前需要调用 qcloud.setLoginUrl() 设置登录地址，不过我们在 app.js 的入口里面已经调用过了，后面就不用再调用了
+    qcloud.login({
+      success(result) {
+        showSuccess('登录成功');
+        console.log('登录成功', result);
+      },
+
+      fail(error) {
+        showModel('登录失败', error);
+        console.log('登录失败', error);
+      }
+    });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
