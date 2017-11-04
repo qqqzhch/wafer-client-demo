@@ -16,7 +16,7 @@
             <view class="weui-media-box weui-media-box_text">
               <view class="weui-media-box__desc wordb">{{item.brief}}</view>
               <view class="weui-media-box__info">
-                <view class="weui-media-box__info__meta">{{item.creatTime}}间</view>
+                <view class="weui-media-box__info__meta">{{item.place}}</view>
                 <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.nickname}}</view>
               </view>
             </view>
@@ -31,8 +31,8 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell">
             <view class="weui-cell__bd">
-              <textarea class="weui-textarea" value="{{userinput}}" placeholder="请输入文本" style="height: 3.3em" />
-              <view class="weui-textarea-counter">0/200</view>
+              <textarea class="weui-textarea" bindinput='setinpute' value='{{userinput}}'   placeholder="回忆杀" style="height: 3.3em" />
+              
             </view>
           </view>
         </view>

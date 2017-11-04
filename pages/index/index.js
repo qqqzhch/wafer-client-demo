@@ -30,50 +30,12 @@ var showModel = (title, content) => {
 };
 Page({
   data: {
-    tabs: ["100条吐槽", "我要吐槽"],
+    tabs: ["吐槽广场", "我要吐槽"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
     userinput:'',
-    itemList:[
-      {
-        brief:'小程序碰到了个问题，view并不能让文本自动换行。 官方定义的view组件，display为block。 scroll-view中定义display:flex是无效的。 view中要让中文片段自动换',
-        creatTime:'*****',
-        nickname:'********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      }, {
-        brief: '********************************************************************',
-        creatTime: '*****',
-        nickname: '********************'
-      },
-    ]
+    itemList:[]
   },
   onLoad: function () {
     var that = this;
@@ -84,6 +46,7 @@ Page({
       success(result) {
         showSuccess('登录成功');
         console.log('登录成功', result);
+        that.getList()
       },
 
       fail(error) {
@@ -100,6 +63,52 @@ Page({
       }
     });
   },
+  getList:function(){
+    // qcloud.request() 方法和 wx.request() 方法使用是一致的，不过如果用户已经登录的情况下，会把用户的会话信息带给服务器，服务器可以跟踪用户
+    var that = this;
+    qcloud.request({
+      // 要请求的地址
+      url: config.service.getanklistUrl,
+      // 请求之前是否登陆，如果该项指定为 true，会在请求之前进行登录
+      login: true,
+      success(result) {
+        showSuccess('请求成功完成');
+        console.log('request success', result);
+        if (result.statusCode==200){
+          that.setData({
+            itemList: result.data.map(function (item) {
+              return {
+                brief: item.description,
+                place: item.province + " " + item.city ,
+                nickname: item.nickName
+              }
+
+            })
+          })
+
+        }
+        
+        
+      },
+
+      fail(error) {
+        showModel('请求失败', error);
+        console.log('request fail', error);
+      },
+
+      complete() {
+        console.log('request complete');
+      }
+    });
+    //
+
+  },
+  setinpute:function(e){
+    this.setData({
+      userinput: e.detail.value
+    });
+
+  },
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
@@ -110,13 +119,16 @@ Page({
     console.log(this.data)
     console.log(this.data.userinput)
     //
-    showBusy('正在请求');
 
+    showBusy('正在请求');
+    var _this=this;
     // qcloud.request() 方法和 wx.request() 方法使用是一致的，不过如果用户已经登录的情况下，会把用户的会话信息带给服务器，服务器可以跟踪用户
     qcloud.request({
       // 要请求的地址
       url: config.service.creatinfoUrl,
-      data: this.data.userinput,
+      data:{
+        input: this.data.userinput
+      }, 
       method:'POST',
 
       // 请求之前是否登陆，如果该项指定为 true，会在请求之前进行登录
@@ -125,6 +137,9 @@ Page({
       success(result) {
         showSuccess('请求成功完成');
         console.log('request success', result);
+        _this.setData({
+          userinput:''
+        })
       },
 
       fail(error) {

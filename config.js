@@ -21,7 +21,8 @@ var config = {
         tunnelUrl: `https://${host}/tunnel`,
         // 测试的请求地址，用于测试会话
         creatinfoUrl: `https://${host}/creatinfo`,
-        uploadfileUrl: `https://${host}/uploadfile`
+        uploadfileUrl: `https://${host}/uploadfile`,
+        getanklistUrl: `https://${host}/gettanklist`
     }
 };
 
