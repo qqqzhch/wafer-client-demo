@@ -72,7 +72,7 @@ Page({
       // 请求之前是否登陆，如果该项指定为 true，会在请求之前进行登录
       login: true,
       success(result) {
-        showSuccess('请求成功完成');
+        
         console.log('request success', result);
         if (result.statusCode==200){
           that.setData({
@@ -110,10 +110,14 @@ Page({
 
   },
   tabClick: function (e) {
+    
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+    if (this.data.activeIndex == 0) {
+      this.getList();
+    }
   },
   submitdata:function(e){
     console.log(this.data)
